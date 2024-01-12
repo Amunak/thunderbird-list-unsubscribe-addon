@@ -1,0 +1,37 @@
+{
+    "name": "__MSG_extensionName__",
+    "version": "1.0.0",
+    "description": "__MSG_extensionDescription__",
+    "author": "Amunak",
+    "homepage_url": "https://github.com/Amunak/thunderbird-list-unsubscribe-addon",
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "list-unsubscribe@addons.amunak.net",
+            "strict_min_version": "112.0"
+        }
+    },
+    "default_locale": "en",
+    "icons": {
+        "48": "icons/icon_48.png",
+        "96": "icons/icon_96.png"
+    },
+    "manifest_version": 2,
+    "message_display_action": {
+        "default_icon": "icons/icon_48.png",
+        "default_title": "__MSG_unsubButtonLabel__",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "http://*/*",
+        "https://*/*",
+        "messagesRead",
+        "accountsRead",
+        "clipboardWrite",
+        "webRequest"
+    ]
+}

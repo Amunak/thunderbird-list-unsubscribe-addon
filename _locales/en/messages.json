@@ -1,0 +1,67 @@
+{
+    "extensionName": {
+        "message": "List Unsubscribe",
+        "description": "Name of the extension."
+    },
+
+    "extensionDescription": {
+        "message": "Adds a button to unsubscribe from newsletters and other bulk email that has the List-Unsubscribe header.",
+        "description": "Description of the extension."
+    },
+
+    "unsubButtonLabel": {
+        "message": "Unsubscribe",
+        "description": "The unsubscribe toolbar button label."
+    },
+
+    "noUnsub": {
+        "message": "No unsubscribe header found.",
+        "description": "Shown when no List-Unsubscribe header was found in the message."
+    },
+
+    "unsubLink": {
+        "message": "Unsubscribe link: ",
+        "description": "A visible label for the unsubscribe link."
+    },
+
+    "unsubConfirmPrompt": {
+        "message": "Are you sure you want to unsubscribe from this mailing list?",
+        "description": "A prompt that asks the user to confirm that they want continue with the one-click unsubscribe."
+    },
+
+    "confirmOneClick": {
+        "message": "One-click unsubscribe",
+        "description": "A button label to confirm the one-click unsubscribe."
+    },
+
+    "confirmOpenLink": {
+        "message": "Open link",
+        "description": "A button label to open the unsubscribe link in the browser."
+    },
+
+    "confirmComposeEmail": {
+        "message": "Compose email",
+        "description": "A button label to compose an email to unsubscribe."
+    },
+
+    "oneClickInProgress": {
+        "message": "Unsubscribe request in progress...",
+        "description": "A message shown when the one-click unsubscribe is pending."
+    },
+
+    "oneClickSuccess": {
+        "message": "Unsubscribe request sent.",
+        "description": "A message shown when the one-click unsubscribe was successful."
+    },
+
+    "oneClickFailure": {
+        "message": "Unsubscribe request failed: $ERROR$",
+        "description": "A message shown when the one-click unsubscribe failed.",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "404 Not Found"
+            }
+        }
+    }
+}
