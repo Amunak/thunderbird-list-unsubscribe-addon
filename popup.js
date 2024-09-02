@@ -128,7 +128,7 @@ browser.tabs.query({
 					const identityId = await (async (message) => {
 						// try to get identityId from the message
 						if (typeof message.folder === 'Object') {
-							const identities = await messanger.accounts.get(message.folder.accountId).identities
+							const identities = await messenger.accounts.get(message.folder.accountId).identities
 							// we can use it only if there is only one identity
 							if (identities.length === 1) {
 								return identities[0].id
