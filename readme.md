@@ -18,4 +18,4 @@ Additionally you can click the exposed link to copy it to clipboard.
 - **messagesRead**: Required to access the email headers.
 - **accountsRead**: Required to fetch the correct "identity" to send the unsubscribe email from.
 - **clipboardWrite**: Required to allow copying the unsubscribe link to clipboard.
-- **webRequest**: Required for making the one-click unsubscribe requests. This is also why the addon needs access to all HTTP and HTTPS URLs.
+- **http(s)://\*/\***: Required for making the one-click unsubscribe requests to any URL.

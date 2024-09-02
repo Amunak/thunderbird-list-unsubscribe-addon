@@ -31,7 +31,6 @@
         "https://*/*",
         "messagesRead",
         "accountsRead",
-        "clipboardWrite",
-        "webRequest"
+        "clipboardWrite"
     ]
 }
