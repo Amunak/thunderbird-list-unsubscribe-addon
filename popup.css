@@ -4,9 +4,18 @@ body, html {
 }
 
 code {
+	display: inline-block;
 	font-size: .875em;
 	color: #d63384;
 	word-wrap: break-word;
+
+	transition: all 0.1s ease;
+	cursor: pointer;
+}
+
+code.hl {
+	color: #ffffff;
+	background-color: #d63384;
 }
 
 .popup-page {

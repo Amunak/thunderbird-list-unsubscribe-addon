@@ -86,6 +86,10 @@ async function handleActiveTabs(tabs) {
 		linkEl.innerText = unsubLink
 		linkEl.addEventListener('click', () => {
 			navigator.clipboard.writeText(linkEl.innerText)
+			linkEl.classList.add('hl')
+			setTimeout(() => {
+				linkEl.classList.remove('hl')
+			}, 100)
 		})
 
 		linkContainerEl.innerText = browser.i18n.getMessage('unsubLink')
