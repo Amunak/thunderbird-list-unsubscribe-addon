@@ -3,9 +3,42 @@ browser.tabs.query({
 	currentWindow: true,
 }).then(handleActiveTabs)
 
+let shouldAutoclose = false
+async function autoclose() {
+	if (!shouldAutoclose) {
+		return
+	}
+
+	const info = await browser.windows.getCurrent()
+	 browser.windows.remove(info.id)
+}
+
+async function askForMessage() {
+	try {
+		const response = await browser.runtime.sendMessage({action: 'getSelectedMessage'})
+		handleMessage(response.message)
+	} catch (e) {
+		console.warn(e)
+	}
+}
+
 async function handleActiveTabs(tabs) {
-	let message = await browser.messageDisplay.getDisplayedMessage(tabs[0].id);
-	let fullMessage = await browser.messages.getFull(message.id);
+	if (tabs[0].type !== 'mail') {
+		shouldAutoclose = true
+		askForMessage()
+	}
+
+	const message = await browser.messageDisplay.getDisplayedMessage(tabs[0].id)
+
+	if (!message) {
+		return
+	}
+
+	handleMessage(message)
+}
+
+async function handleMessage(message) {
+	let fullMessage = await browser.messages.getFull(message.id)
 
 	const headers = fullMessage.headers
 	const messageEl = document.getElementById('message')
@@ -75,10 +108,6 @@ async function handleActiveTabs(tabs) {
 		unsubCommand = headers['list-unsubscribe-post'][0]
 	}
 
-	console.log('unsub link: ', unsubLink)
-	console.log('unsub email: ', unsubEmail)
-	console.log('unsub command: ', unsubCommand)
-
 	messageEl.innerText = browser.i18n.getMessage('unsubConfirmPrompt')
 	if (unsubLink !== null) {
 		const linkContainerEl = document.getElementById('unsub-link-container')
@@ -128,6 +157,7 @@ async function handleActiveTabs(tabs) {
 			browser.tabs.create({
 				url: unsubLink.toString(),
 			})
+			autoclose()
 		})
 		actionContainerEl.appendChild(button)
 	}
@@ -162,6 +192,7 @@ async function handleActiveTabs(tabs) {
 				subject: unsubEmailSubject ?? 'unsubscribe',
 				identityId,
 			})
+			autoclose()
 		})
 		actionContainerEl.appendChild(button)
 	}
