@@ -11,6 +11,16 @@ body {
 	user-select: none;
 }
 
+html {
+	background: transparent;
+	color: #222426;
+}
+
+html.theme-dark {
+	background: #27272a;
+	color: #f8f8f2;
+}
+
 body * {
 	box-sizing: border-box;
 	text-align: start;
@@ -35,6 +45,10 @@ code {
 	cursor: pointer;
 }
 
+.theme-dark code {
+	color: #ff79c6;
+}
+
 code.hl {
 	color: #ffffff;
 	background-color: #d63384;
@@ -54,18 +68,23 @@ button {
 	min-height: 24px;
 	padding: 4px 6px;
 	margin: 4px 1px;
+	color: #222426;
 	background-color: color-mix(in srgb, currentColor 6%, transparent);
 
 	border: 1px solid #a1a1aa;
 	border-radius: 3px;
 	transition: background-color .15s, border-color .15s;
 }
+.theme-dark button {
+	color: #f8f8f2;
+	border-color: #44475a;
+}
 
 button:not([disabled],[open],:active):is(:hover,:focus-visible) {
-	background-color: color-mix(in srgb, currentColor 12%, transparent);
+	background-color: color-mix(in srgb, currentColor 30%, transparent);
 }
 
 button:not([disabled]):is([open],:hover:active) {
-	background-color: color-mix(in srgb, currentColor 20%, transparent);
+	background-color: color-mix(in srgb, currentColor 60%, transparent);
 	box-shadow: 0 1px 0 hsla(210, 4%, 10%, .03) inset;
 }

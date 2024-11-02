@@ -1,3 +1,7 @@
+// wait for theme detection as to not flash the default theme
+const theme = await browser.theme.getCurrent()
+document.documentElement.classList.add(`theme-${theme.properties.color_scheme}`)
+
 browser.tabs.query({
 	active: true,
 	currentWindow: true,

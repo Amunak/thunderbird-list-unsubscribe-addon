@@ -1,8 +1,8 @@
 /* Global */
 html,
 body {
-	background: transparent;
 	box-sizing: border-box;
+	background: light-dark(transparent, #27272a);
 	color: light-dark(#222426, CanvasText);
 	cursor: default;
 	display: flex;
@@ -11,6 +11,10 @@ body {
 	margin: 0;
 	padding: 0;
 	user-select: none;
+}
+
+body {
+	margin: 1rem 2rem;
 }
 
 body * {
