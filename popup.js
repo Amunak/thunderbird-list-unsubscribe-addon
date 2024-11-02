@@ -16,7 +16,7 @@ async function autoclose() {
 async function askForMessage() {
 	try {
 		const response = await browser.runtime.sendMessage({action: 'getSelectedMessage'})
-		handleMessage(response.message)
+		await handleMessage(response.message)
 	} catch (e) {
 		console.warn(e)
 	}
@@ -25,7 +25,9 @@ async function askForMessage() {
 async function handleActiveTabs(tabs) {
 	if (tabs[0].type !== 'mail') {
 		shouldAutoclose = true
-		askForMessage()
+		await askForMessage()
+
+		return
 	}
 
 	const message = await browser.messageDisplay.getDisplayedMessage(tabs[0].id)
@@ -34,7 +36,7 @@ async function handleActiveTabs(tabs) {
 		return
 	}
 
-	handleMessage(message)
+	await handleMessage(message)
 }
 
 async function handleMessage(message) {
@@ -153,11 +155,11 @@ async function handleMessage(message) {
 
 		const button = document.createElement('button')
 		button.innerText = browser.i18n.getMessage('confirmOpenLink')
-		button.addEventListener('click', () => {
+		button.addEventListener('click', async () => {
 			browser.tabs.create({
 				url: unsubLink.toString(),
 			})
-			autoclose()
+			await autoclose()
 		})
 		actionContainerEl.appendChild(button)
 	}
@@ -192,7 +194,7 @@ async function handleMessage(message) {
 				subject: unsubEmailSubject ?? 'unsubscribe',
 				identityId,
 			})
-			autoclose()
+			await autoclose()
 		})
 		actionContainerEl.appendChild(button)
 	}

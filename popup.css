@@ -1,7 +1,29 @@
-body, html {
+/* Global */
+html,
+body {
+	box-sizing: border-box;
+	cursor: default;
+	display: flex;
+	flex-direction: column;
+	font: caption;
 	margin: 0;
 	padding: 0;
+	user-select: none;
 }
+
+body * {
+	box-sizing: border-box;
+	text-align: start;
+	font-size: 1.25rem;
+}
+
+h2 {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: .5rem;
+}
+
+/* Code */
 
 code {
 	display: inline-block;
@@ -26,7 +48,24 @@ code.hl {
 	margin: 1rem 0;
 }
 
+/* Buttons */
 button {
-	margin: 0;
-	margin-right: .5rem;
+	appearance: none;
+	min-height: 24px;
+	padding: 4px 6px;
+	margin: 4px 1px;
+	background-color: color-mix(in srgb, currentColor 6%, transparent);
+
+	border: 1px solid #a1a1aa;
+	border-radius: 3px;
+	transition: background-color .15s, border-color .15s;
+}
+
+button:not([disabled],[open],:active):is(:hover,:focus-visible) {
+	background-color: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+button:not([disabled]):is([open],:hover:active) {
+	background-color: color-mix(in srgb, currentColor 20%, transparent);
+	box-shadow: 0 1px 0 hsla(210, 4%, 10%, .03) inset;
 }

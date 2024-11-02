@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="utf-8">
-      <title>List Unsubscribe</title>
-      <link rel="stylesheet" href="popup.css">
-  </head>
-  <body>
-      <div class="popup-page">
-          <div id="message">Processing...</div>
-          <div id="unsub-link-container"></div>
-          <div id="action-container"></div>
-      </div>
-      <script type="module" src="popup.js"></script>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<title>List Unsubscribe</title>
+		<link rel="stylesheet" href="popup.css">
+		<script type="module" src="/modules/localization.js"></script>
+		<script type="module" src="popup.js"></script>
+	</head>
+	<body>
+		<div class="popup-page">
+			<div id="message" data-l10n-id="processing">Processing...</div>
+			<div id="unsub-link-container"></div>
+			<div id="action-container"></div>
+		</div>
+	</body>
 </html>

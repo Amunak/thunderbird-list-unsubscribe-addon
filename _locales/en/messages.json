@@ -9,6 +9,26 @@
         "description": "Description of the extension."
     },
 
+    "enableContextButtonTitle": {
+        "message": "Enable context button",
+        "description": "Title of the option to enable the context button."
+    },
+
+    "enableContextButtonEnable": {
+        "message": "Enable",
+        "description": "Option to enable the context button."
+    },
+
+    "enableContextButtonDisable": {
+        "message": "Disable",
+        "description": "Option to disable the context button."
+    },
+
+    "processing": {
+        "message": "Processing...",
+        "description": "A message shown when the extension is processing the message."
+    },
+
     "unsubButtonLabel": {
         "message": "Unsubscribe",
         "description": "The unsubscribe toolbar button label."

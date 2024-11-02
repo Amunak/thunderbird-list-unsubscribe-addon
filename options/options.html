@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="color-scheme" content="dark light">
+		<link rel="stylesheet" href="options.css">
+		<script type="module" src="/modules/localization.js"></script>
+		<script type="module" src="options.js"></script>
+	</head>
+	<body>
+		<form name="optionsForm">
+			<section>
+				<h2 data-l10n-id="enableContextButtonTitle">Enable context button</h2>
+
+				<div>
+					<input type="radio" name="enableContextButton" value="enable" id="enableContextButtonEnable">
+					<label for="enableContextButtonEnable" data-l10n-id="enableContextButtonEnable">Enable</label>
+				</div>
+
+				<div>
+					<input type="radio" name="enableContextButton" value="disable" id="enableContextButtonDisable">
+					<label for="enableContextButtonDisable" data-l10n-id="enableContextButtonDisable">Disable</label>
+				</div>
+			</section>
+		</form>
+	</body>
+</html>

@@ -1,3 +1,5 @@
+import { fetchOptions } from '/modules/options.js'
+
 browser.mailTabs.onSelectedMessagesChanged.addListener(async (tab, messageList) => {
 	if (messageList.messages.length !== 1) {
 		browser.messageDisplayAction.disable()
@@ -13,8 +15,23 @@ browser.mailTabs.onSelectedMessagesChanged.addListener(async (tab, messageList) 
 	browser.messageDisplayAction.disable()
 })
 
-window.addEventListener('load', async () => {
-	const menuItemId = 'message-list-unsub-button'
+const menuItemId = 'message-list-unsub-button'
+browser.runtime.onMessage.addListener(async (runtimeMessage, sender, sendResponse) => {
+	if (runtimeMessage.action !== 'optionsChanged') {
+		return
+	}
+
+	browser.menus.remove(menuItemId)
+	await enableContextButton()
+})
+
+window.addEventListener('load', enableContextButton)
+async function enableContextButton() {
+	const options = await fetchOptions()
+	if (options.enableContextButton !== 'enable') {
+		return
+	}
+
 	let menuItemEnabled = false
 	let selectedMessage = null
 
@@ -88,4 +105,4 @@ window.addEventListener('load', async () => {
 
 		sendResponse({message: selectedMessage})
 	})
-})
+}

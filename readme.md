@@ -19,4 +19,5 @@ Additionally you can click the exposed link to copy it to clipboard.
 - **accountsRead**: Required to fetch the correct "identity" to send the unsubscribe email from.
 - **clipboardWrite**: Required to allow copying the unsubscribe link to clipboard.
 - **menus**: Required to allow modifying the message list context menu to show the unsubscribe button.
+- **storage**: Required to store extension options.
 - **http(s)://\*/\***: Required for making the one-click unsubscribe requests to any URL.

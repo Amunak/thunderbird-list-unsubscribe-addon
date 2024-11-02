@@ -4,10 +4,15 @@
     "description": "__MSG_extensionDescription__",
     "author": "Amunak",
     "homepage_url": "https://github.com/Amunak/thunderbird-list-unsubscribe-addon",
+    "options_ui": {
+        "page": "options/options.html",
+        "open_in_tab": false
+    },
     "background": {
         "scripts": [
             "background.js"
-        ]
+        ],
+        "type": "module"
     },
     "browser_specific_settings": {
         "gecko": {
@@ -32,6 +37,7 @@
         "messagesRead",
         "accountsRead",
         "clipboardWrite",
-        "menus"
+        "menus",
+        "storage"
     ]
 }
