@@ -139,7 +139,10 @@ async function handleMessage(message) {
 				messageEl.innerText = browser.i18n.getMessage('oneClickInProgress')
 
 				try {
+					const reqHeaders = new Headers();
+					reqHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 					await fetch(unsubLink, {
+						headers: reqHeaders,
 						method: 'POST',
 						body: unsubCommand,
 					});
