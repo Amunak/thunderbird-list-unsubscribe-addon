@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v1
+        uses: actions/checkout@v6
 
       - name: "web-ext build"
         id: web-ext-build
@@ -22,7 +22,7 @@ jobs:
           filename: "{name}-{version}.xpi"
 
       - name: "Upload Artifact"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v5
         with:
           name: target.xpi
           path: ${{ steps.web-ext-build.outputs.target }}
